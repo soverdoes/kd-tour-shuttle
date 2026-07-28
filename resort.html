@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>KD투어 — 시안2(리조트셔틀)</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  /* 애니메이션 초기 상태를 렌더 전에 적용 (깜빡임 방지).
+     모션 최소화 설정이면 클래스를 붙이지 않아 전부 즉시 노출됩니다. */
+  (function () {
+    var m = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (m && m.matches) return;
+    document.documentElement.className += ' js-anim';
+    /* 스크립트 로드 실패 시에도 콘텐츠가 숨겨진 채 남지 않도록 안전장치 */
+    setTimeout(function () {
+      if (!window.__animReady) {
+        document.documentElement.className =
+          document.documentElement.className.replace(/\bjs-anim\b/, '');
+      }
+    }, 2500);
+  })();
+</script>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= GNB ================= -->
+  <header class="gnb">
+    <div class="gnb__inner">
+      <div class="gnb__logo ph ph--sm ph--contain">logo-kdtour.svg<img src="assets/img/logo-kdtour.svg" alt="KD투어" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+
+      <nav class="gnb__nav">
+        <a href="index.html">시안1(스키셔틀)</a>
+        <a href="resort.html">시안2(리조트셔틀)</a>
+      </nav>
+
+      <div class="gnb__right">
+        <a href="#" class="gnb__login">로그인</a>
+        <span class="gnb__globe">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3.6 9h16.8M3.6 15h16.8"/>
+            <path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 1. HERO ================= -->
+  <section class="hero">
+    <div class="hero__bg ph">hero-resort.jpg<br>1920 × 700<img src="assets/img/hero-resort.jpg" alt="" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+    <div class="hero__dim"></div>
+
+    <div class="hero__body">
+      <h1 class="hero__title">기다리고 싶은 버스<br>타고 싶은 버스</h1>
+      <p class="hero__desc">최고 안전하게, 최고 친절하게, 최고 깨끗하게, 최고 편안하게<br>"길이 있는 곳에 KD 운송그룹이 있습니다."</p>
+    </div>
+  </section>
+
+  <!-- ================= 2. INTRO ================= -->
+  <section class="intro">
+    <h2 class="intro__title">길이 있는 곳에<br><em>KD 운송그룹</em>이 있습니다.</h2>
+
+    <div class="intro__rule"></div>
+
+    <div class="intro__list">
+      <div class="intro__item">
+        <span class="intro__num">01</span>
+        <h3 class="intro__name">안전하게</h3>
+        <p class="intro__text">출발 전 차량 점검과 운전원 관리 체계로 모든 노선을 안전하게 운행합니다.</p>
+      </div>
+      <div class="intro__item">
+        <span class="intro__num">02</span>
+        <h3 class="intro__name">친절하게</h3>
+        <p class="intro__text">승하차 안내부터 문의 응대까지 교육받은<br>인력이 함께합니다.</p>
+      </div>
+      <div class="intro__item">
+        <span class="intro__num">03</span>
+        <h3 class="intro__name">깨끗하게</h3>
+        <p class="intro__text">운행 전후 청소와 소독으로 쾌적한 실내를<br>유지합니다.</p>
+      </div>
+      <div class="intro__item">
+        <span class="intro__num">04</span>
+        <h3 class="intro__name">편안하게</h3>
+        <p class="intro__text">장거리 이동에 맞춘 좌석과 넉넉한 수하물 공간을<br>제공합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. 평창 리조트 셔틀버스 ================= -->
+  <section class="shuttle">
+    <div class="shuttle__bg ph">section-shuttle-resort-bg.jpg<br>1920 × 952<img src="assets/img/section-shuttle-resort-bg.jpg" alt="" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+    <div class="shuttle__dim"></div>
+
+    <div class="shuttle__head">
+      <h2 class="shuttle__title">평창 리조트 셔틀버스</h2>
+      <p class="shuttle__desc">서울·수도권에서 출발하는 평창권 리조트 왕복 셔틀<br>워터파크 예매권도 함께 예약할 수 있습니다.</p>
+    </div>
+
+    <div class="shuttle__cards">
+      <article class="rcard">
+        <div class="rcard__thumb ph ph--sm">card-phoenixpark-resort.jpg<br>353 × 359<img src="assets/img/card-phoenixpark-resort.jpg" alt="휘닉스파크" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+        <div class="rcard__body">
+          <span class="rcard__eyebrow">Phoenix Park</span>
+          <div class="rcard__group">
+            <div class="rcard__texts">
+              <h3 class="rcard__name">휘닉스파크</h3>
+              <p class="rcard__sub">평창 · 스노우파크</p>
+            </div>
+            <a href="#" class="rcard__btn">예약하기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rcard">
+        <div class="rcard__thumb ph ph--sm">card-monayongpyong-resort.jpg<br>353 × 359<img src="assets/img/card-monayongpyong-resort.jpg" alt="모나 용평" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+        <div class="rcard__body">
+          <span class="rcard__eyebrow">MONA Yong Pyong</span>
+          <div class="rcard__group">
+            <div class="rcard__texts">
+              <h3 class="rcard__name">모나 용평</h3>
+              <p class="rcard__sub">평창 · 국내 최대 규모</p>
+            </div>
+            <a href="#" class="rcard__btn">예약하기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rcard">
+        <div class="rcard__thumb ph ph--sm">card-alpensia-resort.jpg<br>353 × 359<img src="assets/img/card-alpensia-resort.jpg" alt="알펜시아" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+        <div class="rcard__body">
+          <span class="rcard__eyebrow">Alpensia</span>
+          <div class="rcard__group">
+            <div class="rcard__texts">
+              <h3 class="rcard__name">알펜시아</h3>
+              <p class="rcard__sub">평창 · 가족·초보 추천</p>
+            </div>
+            <a href="#" class="rcard__btn">예약하기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rcard">
+        <div class="rcard__thumb ph ph--sm">card-ramadapyeongchang-resort.jpg<br>353 × 359<img src="assets/img/card-ramadapyeongchang-resort.jpg" alt="라마다 평창" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+        <div class="rcard__body">
+          <span class="rcard__eyebrow">Ramada Pyeongchang</span>
+          <div class="rcard__group">
+            <div class="rcard__texts">
+              <h3 class="rcard__name">라마다 평창</h3>
+              <p class="rcard__sub">평창 · 숙박 연계</p>
+            </div>
+            <a href="#" class="rcard__btn">예약하기</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 4. 예약은 3단계면 끝납니다 ================= -->
+  <section class="steps">
+    <div class="steps__illust ph ph--contain">illust-booking-3steps.png<br>985 × 597<img src="assets/img/illust-booking-3steps.png" alt="" onload="this.parentNode.style.color='transparent';this.parentNode.style.background='transparent'" onerror="this.style.display='none'"></div>
+
+    <div class="steps__inner">
+      <div class="steps__left">
+        <div class="steps__head">
+          <h2 class="steps__title">예약은 3단계면 끝납니다</h2>
+          <p class="steps__sub">요구사항 분석부터 결과 보고까지 빈틈없이 설계합니다</p>
+        </div>
+      </div>
+
+      <div class="steps__list">
+        <div class="step">
+          <span class="step__badge">Step.1</span>
+          <div class="step__body">
+            <h3 class="step__title">노선과 날짜 선택</h3>
+            <p class="step__desc">가고 싶은 리조트와 탑승일, 출발지를 고릅니다.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step__badge">Step.2</span>
+          <div class="step__body">
+            <h3 class="step__title">온라인 예약 접수</h3>
+            <p class="step__desc">탑승 전날 17시까지 인터넷으로 예약을 접수합니다.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step__badge">Step.3</span>
+          <div class="step__body">
+            <h3 class="step__title">현장 탑승 · 결제</h3>
+            <p class="step__desc">탑승지에서 확인 후 승차합니다. 현장 결제도 가능합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. 공지사항 / 자주 묻는 질문 ================= -->
+  <section class="board">
+    <div class="board__col">
+      <div class="board__head">
+        <h2 class="board__title">공지사항</h2>
+        <a href="#" class="board__more">더보기 +</a>
+      </div>
+
+      <div class="board__card">
+        <a href="#" class="notice__item">
+          <span class="notice__subject">2026 리조트 셔틀버스 운행 안내</span>
+          <span class="notice__date">2025.11.20</span>
+        </a>
+        <a href="#" class="notice__item">
+          <span class="notice__subject">설악 정기운행 노선 시간표 변경 안내</span>
+          <span class="notice__date">2025.12.02</span>
+        </a>
+        <a href="#" class="notice__item">
+          <span class="notice__subject">시즌권 판매 일정 안내</span>
+          <span class="notice__date">2025.12.15</span>
+        </a>
+        <a href="#" class="notice__item">
+          <span class="notice__subject">연말연시 고객센터 운영 안내</span>
+          <span class="notice__date">2025.12.28</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="board__col">
+      <div class="board__head">
+        <h2 class="board__title">자주 묻는 질문</h2>
+        <a href="#" class="board__more">더보기 +</a>
+      </div>
+
+      <div class="board__card">
+        <a href="#" class="faq__item">
+          <span class="faq__q">Q</span>
+          <span class="faq__subject">예약은 언제까지 할 수 있나요?</span>
+          <span class="faq__plus">+</span>
+        </a>
+        <a href="#" class="faq__item">
+          <span class="faq__q">Q</span>
+          <span class="faq__subject">예약 취소와 환불 규정이 궁금합니다.</span>
+          <span class="faq__plus">+</span>
+        </a>
+        <a href="#" class="faq__item">
+          <span class="faq__q">Q</span>
+          <span class="faq__subject">단체 예약도 온라인으로 가능한가요?</span>
+          <span class="faq__plus">+</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/scroll-anim.js"></script>
+</body>
+</html>

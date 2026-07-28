@@ -1,0 +1,611 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+/* ==========================================================================
+   KD투어 시안1 — Figma 원본(1920 x 3560) 1:1 퍼블리싱
+   콘텐츠 폭 1440 / 좌우 여백 240
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 1920px;
+  font-family: "Pretendard", "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: #111111;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+ul, li { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p { margin: 0; }
+
+/* 페이지 래퍼 : Figma 프레임 1920 x 3560 */
+.page {
+  position: relative;
+  width: 1920px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   이미지 슬롯
+   assets/img/ 에 해당 파일이 있으면 사진이 표시되고,
+   없으면 파일명이 적힌 회색 플레이스홀더 박스가 그대로 보입니다.
+   -------------------------------------------------------------------------- */
+.ph {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #d9d9d9;
+  color: #7c7c7c;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  word-break: break-all;
+  padding: 4px;
+}
+.ph--sm { font-size: 12px; }
+
+/* 실제 이미지 : 로드되면 플레이스홀더 텍스트를 덮음 / 실패하면 onerror 로 숨김 */
+.ph > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ph--contain > img { object-fit: contain; }
+
+/* ==========================================================================
+   GNB (헤더) — 1920 x 116, 히어로 위에 오버레이
+   ========================================================================== */
+.gnb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 1920px;
+  height: 116px;
+  padding: 32px 240px;
+}
+.gnb__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1440px;
+  height: 52px;
+}
+.gnb__logo {
+  width: 214px;
+  height: 34px;
+}
+.gnb__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 28px;
+}
+.gnb__nav a {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.gnb__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 48px;
+}
+.gnb__login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 48px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  background: #0076ff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.gnb__globe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+}
+
+/* ==========================================================================
+   1. HERO — 1920 x 700
+   ========================================================================== */
+.hero {
+  position: relative;
+  width: 1920px;
+  height: 700px;
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 700px;
+}
+.hero__dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.hero__body {
+  position: absolute;
+  left: 240px;
+  top: 239px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 731px;
+}
+.hero__title {
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 74px;
+  color: #ffffff;
+}
+.hero__desc {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   2. INTRO — 1920 x 577
+   ========================================================================== */
+.intro {
+  width: 1920px;
+  height: 577px;
+  padding: 96px 240px 100px;
+  background: #ffffff;
+}
+.intro__title {
+  width: 1440px;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 69px;
+  color: #111111;
+}
+.intro__title em {
+  font-style: normal;
+  color: #0076ff;
+}
+.intro__rule {
+  width: 1440px;
+  height: 2px;
+  margin-top: 44px;
+  background: #111111;
+}
+.intro__list {
+  display: flex;
+  width: 1440px;
+  height: 138px;
+  margin-top: 44px;
+}
+.intro__item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 360px;
+  padding-right: 36px;
+}
+.intro__num {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #0076ff;
+}
+.intro__name {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 44px;
+  color: #111111;
+}
+.intro__text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #3b3e43;
+}
+
+/* ==========================================================================
+   3. SHUTTLE — 1920 x 952
+   ========================================================================== */
+.shuttle {
+  position: relative;
+  width: 1920px;
+  height: 952px;
+  padding: 100px 240px;
+  overflow: hidden;
+}
+.shuttle__bg {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 952px;
+}
+.shuttle__dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+.shuttle__head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 842px;
+  height: 150px;
+}
+.shuttle__title {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 62px;
+  color: #ffffff;
+}
+.shuttle__desc {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #ffffff;
+}
+.shuttle__cards {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 1440px;
+  height: 562px;
+  margin-top: 40px;
+}
+
+/* 리조트 카드 */
+.rcard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 352.5px;
+  height: 562px;
+  padding-bottom: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.rcard__thumb {
+  width: 352.5px;
+  height: 359px;
+  flex: none;
+}
+.rcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 20px;
+  height: 167px;
+}
+.rcard__eyebrow {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #2e90fa;
+}
+.rcard__group {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 137px;
+}
+.rcard__texts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 65px;
+}
+.rcard__name {
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 37px;
+  color: #495057;
+}
+.rcard__sub {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #495057;
+}
+.rcard__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 40px;
+  padding: 8px 4px;
+  border-radius: 1000px;
+  background: #2e90fa;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   4. STEPS — 1920 x 687
+   ========================================================================== */
+.steps {
+  position: relative;
+  width: 1920px;
+  height: 687px;
+  padding: 100px 240px;
+  background: #ffffff;
+  overflow: hidden;
+}
+/* 일러스트 : 좌측 잘림 없이 화면 왼쪽 끝에서 시작,
+   상단은 부제 바로 아래(216px), 하단은 섹션 경계에 맞닿도록 배치 */
+.steps__illust {
+  position: absolute;
+  left: 0;
+  top: 216px;
+  width: 768px;
+  height: 466px;
+}
+.steps__inner {
+  position: relative;
+  display: flex;
+  width: 1440px;
+  height: 487px;
+}
+.steps__left {
+  width: 562px;
+  height: 402px;
+}
+.steps__head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 562px;
+}
+.steps__title {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 62px;
+  color: #0f0f0f;
+}
+.steps__sub {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  color: #222222;
+}
+.steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 878px;
+  height: 487px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 878px;
+  height: 141px;
+  padding: 40px 32px;
+  border-radius: 8px;
+  background: #ffffff;
+  /* Figma inside stroke 1px — 콘텐츠 영역을 줄이지 않도록 border 대신 inset shadow 사용 */
+  box-shadow: inset 0 0 0 1px #cccccc;
+}
+.step__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 41px;
+  padding: 6px 20px;
+  border-radius: 100px;
+  background: #0076ff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.step__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 61px;
+}
+.step__title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  color: #222222;
+}
+.step__desc {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #222222;
+}
+
+/* ==========================================================================
+   5. BOARD (공지사항 / FAQ) — 1920 x 644
+   ========================================================================== */
+.board {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 40px;
+  width: 1920px;
+  height: 644px;
+  padding: 160px 240px 100px;
+  background: #f5f7fa;
+}
+.board__col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 700px;
+}
+.board__head {
+  display: flex;
+  align-items: center;
+  width: 700px;
+  height: 42px;
+}
+.board__title {
+  flex: 1;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 42px;
+  color: #111111;
+}
+.board__more {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #666b72;
+  white-space: nowrap;
+}
+.board__card {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  padding: 6px 28px 10px;
+  border-radius: 16px;
+  background: #ffffff;
+  /* Figma inside stroke 1.4px */
+  box-shadow: inset 0 0 0 1.4px #e5e8ec;
+}
+
+/* 공지사항 아이템 */
+.notice__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 71px;
+  padding: 22px 0;
+  box-shadow: inset 0 -1px 0 #e5e8ec;
+}
+.notice__item:last-child { box-shadow: none; }
+.notice__subject {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #111111;
+}
+.notice__date {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #666b72;
+  white-space: nowrap;
+}
+
+/* FAQ 아이템 */
+.faq__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 77px;
+  padding: 22px 0;
+  box-shadow: inset 0 -1px 0 #e5e8ec;
+}
+.faq__item:last-child { box-shadow: none; }
+.faq__q {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 27px;
+  color: #0076ff;
+}
+.faq__subject {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #111111;
+}
+.faq__plus {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 33px;
+  color: #666b72;
+}
+
+/* ==========================================================================
+   SCROLL ANIMATION
+   - .js-anim 은 <head> 인라인 스크립트가 붙입니다.
+     (JS 미사용 / prefers-reduced-motion 환경에서는 붙지 않아 전부 정상 노출)
+   - opacity 와 transform 만 사용하므로 레이아웃 수치에 영향이 없습니다.
+   ========================================================================== */
+
+/* 기본 : 아래에서 위로 페이드업 */
+.js-anim .hero__title,
+.js-anim .hero__desc,
+.js-anim .intro__title,
+.js-anim .intro__item,
+.js-anim .shuttle__title,
+.js-anim .shuttle__desc,
+.js-anim .rcard,
+.js-anim .steps__head,
+.js-anim .step,
+.js-anim .board__col {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity .85s cubic-bezier(.22, .61, .36, 1),
+    transform .85s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* 일러스트 : 왼쪽에서 슬라이드 인 */
+.js-anim .steps__illust {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition:
+    opacity 1s cubic-bezier(.22, .61, .36, 1),
+    transform 1s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* 구분선 : 왼쪽부터 그어지는 효과 */
+.js-anim .intro__rule {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .9s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* 히어로 배경 : 로드 시 아주 완만한 줌아웃 */
+.js-anim .hero__bg > img {
+  transform: scale(1.06);
+  transition: transform 1.8s cubic-bezier(.22, .61, .36, 1);
+}
+.js-anim .hero__bg.is-in > img { transform: none; }
+
+/* 노출 상태 */
+.js-anim .is-in {
+  opacity: 1;
+  transform: none;
+}
