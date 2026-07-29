@@ -141,7 +141,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
 .hero {
   position: relative;
   width: 1920px;
-  height: 700px;
+  height: 806px;
   /* 예약폼 드롭다운/캘린더가 히어로 밖으로 펼쳐질 수 있도록 overflow 해제.
      배경 줌 클리핑은 .hero__bg(.ph) 가 개별 처리하므로 안전합니다. */
   z-index: 30;
@@ -150,7 +150,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
   position: absolute;
   inset: 0;
   width: 1920px;
-  height: 700px;
+  height: 806px;
 }
 .hero__dim {
   position: absolute;
@@ -160,7 +160,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
 .hero__body {
   position: absolute;
   left: 240px;
-  top: 239px;
+  top: 226px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -180,12 +180,12 @@ html:not(.js-fit) .page { margin: 0 auto; }
 }
 
 /* ==========================================================================
-   2. INTRO — 1920 x 577
+   2. INTRO — 1920 x 584
    ========================================================================== */
 .intro {
   width: 1920px;
-  height: 577px;
-  padding: 96px 240px 100px;
+  height: 584px;
+  padding: 120px 240px;
   background: #ffffff;
 }
 .intro__title {
@@ -238,20 +238,20 @@ html:not(.js-fit) .page { margin: 0 auto; }
 }
 
 /* ==========================================================================
-   3. SHUTTLE — 1920 x 952
+   3. SHUTTLE — 1920 x 983
    ========================================================================== */
 .shuttle {
   position: relative;
   width: 1920px;
-  height: 952px;
-  padding: 100px 240px;
+  height: 983px;
+  padding: 120px 240px;
   overflow: hidden;
 }
 .shuttle__bg {
   position: absolute;
   inset: 0;
   width: 1920px;
-  height: 952px;
+  height: 983px;
 }
 .shuttle__dim {
   position: absolute;
@@ -358,24 +358,24 @@ html:not(.js-fit) .page { margin: 0 auto; }
 }
 
 /* ==========================================================================
-   4. STEPS — 1920 x 687
+   4. STEPS — 1920 x 727
    ========================================================================== */
 .steps {
   position: relative;
   width: 1920px;
-  height: 687px;
-  padding: 100px 240px;
+  height: 727px;
+  padding: 120px 240px;
   background: #ffffff;
   overflow: hidden;
 }
 /* 일러스트 : 좌측 잘림 없이 화면 왼쪽 끝에서 시작,
-   상단은 부제 바로 아래(216px), 하단은 섹션 경계에 맞닿도록 배치 */
+   상단 216px, 하단은 섹션 경계에 맞닿도록 배치 (Frame 1000004877 기준) */
 .steps__illust {
   position: absolute;
   left: 0;
   top: 216px;
-  width: 768px;
-  height: 466px;
+  width: 757px;
+  height: 471px;
 }
 .steps__inner {
   position: relative;
