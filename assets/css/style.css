@@ -374,13 +374,14 @@ html:not(.js-fit) .page { margin: 0 auto; }
 .steps__illust {
   position: absolute;
   left: 0;
-  top: 216px;
+  top: 256px;
   width: 757px;
   height: 471px;
 }
 .steps__inner {
   position: relative;
   display: flex;
+  justify-content: space-between;   /* 카피 ↔ 카드 = space-between (간격 108) */
   width: 1440px;
   height: 487px;
 }
@@ -397,7 +398,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
 .steps__title {
   font-size: 44px;
   font-weight: 700;
-  line-height: 58px;
+  line-height: 53px;   /* 2줄 줄바꿈 기준 */
   color: #0f0f0f;
 }
 .steps__sub {
@@ -410,14 +411,14 @@ html:not(.js-fit) .page { margin: 0 auto; }
   display: flex;
   flex-direction: column;
   gap: 32px;
-  width: 878px;
+  width: 770px;
   height: 487px;
 }
 .step {
   display: flex;
   align-items: center;
   gap: 32px;
-  width: 878px;
+  width: 770px;
   height: 141px;
   padding: 40px 32px;
   border-radius: 8px;
