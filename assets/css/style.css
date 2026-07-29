@@ -624,7 +624,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
 .bform {
   position: absolute;
   left: 240px;
-  bottom: 120px;   /* 히어로 하단 고정 — 풀페이지 높이에서도 자연스럽게 배치 */
+  bottom: 360px;   /* 히어로 하단에서 위로 올림 — 아래로 열리는 드롭다운/캘린더 공간 확보 */
   z-index: 5;
   display: flex;
   align-items: flex-end;
@@ -731,15 +731,15 @@ html:not(.js-fit) .page { margin: 0 auto; }
    -------------------------------------------------------------------------- */
 .bpop {
   position: absolute;
-  bottom: calc(100% + 10px);   /* 예약폼이 히어로 하단 고정이므로 위로 열림 */
+  top: calc(100% + 10px);   /* 아래로 열림 */
   left: 0;
   z-index: 60;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
+  transform: translateY(-6px);
   transition: opacity .18s, transform .18s, visibility .18s;
 }
 .bform__field.is-open .bpop {
