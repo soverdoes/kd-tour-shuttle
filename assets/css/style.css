@@ -388,9 +388,9 @@ h1, h2, h3, p { margin: 0; }
   width: 562px;
 }
 .steps__title {
-  font-size: 52px;
+  font-size: 44px;
   font-weight: 700;
-  line-height: 62px;
+  line-height: 58px;
   color: #0f0f0f;
 }
 .steps__sub {
