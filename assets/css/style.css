@@ -13,24 +13,28 @@ html, body {
 }
 
 body {
-  min-width: 1920px;
   font-family: "Pretendard", "Pretendard Variable", -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   color: #111111;
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;   /* 스케일 여백/스크롤 방지 */
 }
 
 a { text-decoration: none; color: inherit; }
 ul, li { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, p { margin: 0; }
 
-/* 페이지 래퍼 : Figma 프레임 1920 x 3560 */
+/* 페이지 래퍼 : Figma 프레임 1920 x 3560 고정 캔버스.
+   fit.js 가 뷰포트 폭에 맞춰 scale() 을 걸어 어떤 폭에서도 꽉 차게 만듭니다.
+   (비율·간격·폰트 크기 관계는 그대로 유지) */
 .page {
   position: relative;
   width: 1920px;
-  margin: 0 auto;
+  transform-origin: top left;
 }
+/* JS 미동작 시 폴백 : 최소한 가운데 정렬 */
+html:not(.js-fit) .page { margin: 0 auto; }
 
 /* --------------------------------------------------------------------------
    이미지 슬롯
