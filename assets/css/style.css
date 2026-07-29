@@ -77,7 +77,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 40;   /* 히어로(z-index:30)보다 위 — 예약폼 도입으로 상향 */
   width: 1920px;
   height: 116px;
   padding: 32px 240px;
@@ -142,7 +142,9 @@ html:not(.js-fit) .page { margin: 0 auto; }
   position: relative;
   width: 1920px;
   height: 700px;
-  overflow: hidden;
+  /* 예약폼 드롭다운/캘린더가 히어로 밖으로 펼쳐질 수 있도록 overflow 해제.
+     배경 줌 클리핑은 .hero__bg(.ph) 가 개별 처리하므로 안전합니다. */
+  z-index: 30;
 }
 .hero__bg {
   position: absolute;
@@ -613,3 +615,249 @@ html:not(.js-fit) .page { margin: 0 auto; }
   opacity: 1;
   transform: none;
 }
+
+/* ==========================================================================
+   BOOKING FORM (예약폼) — 히어로 위 글래스 검색바
+   Figma Frame 1000004867 (1440×118) 기준
+   ========================================================================== */
+.bform {
+  position: absolute;
+  left: 240px;
+  top: 568px;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  width: 1440px;
+  height: 118px;
+  padding: 20px 40px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.17);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* 필드 */
+.bform__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 256px;
+}
+.bfield__label {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #ffffff;
+}
+.bfield__control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  padding: 0 4px 12px 0;
+  border: 0;
+  border-bottom: 2px solid #cccccc;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.bfield__control:hover { border-bottom-color: #ffffff; }
+.bform__field.is-open .bfield__control { border-bottom-color: #0076ff; }
+
+.bfield__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #ffffff;            /* 선택 후 색 */
+}
+.bfield__value.is-placeholder { color: #cacaca; }  /* 미선택 플레이스홀더 */
+
+.bfield__icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+.bform__field.is-open .bfield__chev { transform: rotate(180deg); }
+.bfield__chev { transition: transform .2s; }
+
+/* 검색 버튼 */
+.bform__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 256px;
+  height: 56px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 10px;
+  background: #0076ff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background .2s, transform .05s;
+}
+.bform__search:hover { background: #0068e0; }
+.bform__search:active { transform: translateY(1px); }
+
+/* 잘못 입력 시 흔들림 */
+@keyframes bshake {
+  0%,100% { transform: translateX(0); }
+  20%,60% { transform: translateX(-6px); }
+  40%,80% { transform: translateX(6px); }
+}
+.bfield__control.is-invalid {
+  border-bottom-color: #ff4d4f;
+  animation: bshake .4s;
+}
+
+/* --------------------------------------------------------------------------
+   팝오버 공통
+   -------------------------------------------------------------------------- */
+.bpop {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 60;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .18s, transform .18s, visibility .18s;
+}
+.bform__field.is-open .bpop {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* 드롭다운 리스트 */
+.bdrop {
+  width: 100%;
+  min-width: 220px;
+  max-height: 264px;
+  padding: 8px;
+  overflow-y: auto;
+}
+.bdrop__item {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333333;
+  cursor: pointer;
+}
+.bdrop__item:hover { background: #eef4ff; }
+.bdrop__item.is-selected { color: #0076ff; font-weight: 600; background: #eef4ff; }
+
+/* 캘린더 */
+.bcal {
+  width: 328px;
+  padding: 16px;
+}
+.bcal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.bcal__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111111;
+}
+.bcal__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 8px;
+  background: #f2f4f7;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+.bcal__nav:hover { background: #e4e8ee; }
+.bcal__nav:disabled { opacity: .35; cursor: default; }
+.bcal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.bcal__wd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #98a2b3;
+}
+.bcal__wd.sun { color: #ff5a5a; }
+.bcal__wd.sat { color: #2e90fa; }
+.bcal__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font-size: 15px;
+  color: #333333;
+  cursor: pointer;
+}
+.bcal__day:hover:not(.is-disabled):not(.is-empty) { background: #eef4ff; }
+.bcal__day.sun { color: #ff5a5a; }
+.bcal__day.sat { color: #2e90fa; }
+.bcal__day.is-today { outline: 1.5px solid #0076ff; outline-offset: -1.5px; }
+.bcal__day.is-selected { background: #0076ff !important; color: #ffffff; font-weight: 700; }
+.bcal__day.is-disabled { color: #d0d5dd; cursor: default; }
+.bcal__day.is-empty { cursor: default; }
+
+/* --------------------------------------------------------------------------
+   토스트 (검색 결과 안내 — 다음 화면 대체)
+   -------------------------------------------------------------------------- */
+.btoast {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 90vw;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: rgba(17, 17, 17, 0.92);
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translate(-50%, 16px);
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
+}
+.btoast.is-show { opacity: 1; transform: translate(-50%, 0); }
+.btoast b { color: #6ab0ff; font-weight: 700; }
