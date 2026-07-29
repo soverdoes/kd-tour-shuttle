@@ -624,7 +624,7 @@ html:not(.js-fit) .page { margin: 0 auto; }
 .bform {
   position: absolute;
   left: 240px;
-  bottom: 360px;   /* 히어로 하단에서 위로 올림 — 아래로 열리는 드롭다운/캘린더 공간 확보 */
+  bottom: 240px;   /* 히어로 하단 기준 위치 */
   z-index: 5;
   display: flex;
   align-items: flex-end;
